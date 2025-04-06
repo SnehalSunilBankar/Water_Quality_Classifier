@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('myindex.html')
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -27,7 +27,7 @@ def predict():
     prediction = model.predict(final_features)
     output = 'SAFE' if prediction[0] == 1 else 'NOT SAFE'
 
-    return render_template('myindex.html', prediction_text='Prediction: {}'.format(output))
+    return render_template('index.html', prediction_text='Prediction: {}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
